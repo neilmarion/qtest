@@ -13,13 +13,19 @@ looking very bland, grey and not very interactive, so the product manager has as
     <head>
       <title>HyperCube</title>
       <link href="http://netdna.bootstrapcdn.com/bootstrap/3.0.0-rc1/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+      <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
       <style>
         .navbar {
           background-color: #18bde6;
         }
 
+        .navbar-nav>li>a {
+          color: #fff;
+        }
+
         body {
-          font: 15px/20px Arial, sans-serif;
+          font-family: 'Open Sans', sans-serif;
+          font-size: 20px;
         }
 
         .container {
@@ -27,6 +33,7 @@ looking very bland, grey and not very interactive, so the product manager has as
           width: 250px;
           height: 200px;
           position: relative;
+          margin-top: 100px;
           -webkit-perspective: 1000px;
         }
 
@@ -74,6 +81,7 @@ looking very bland, grey and not very interactive, so the product manager has as
            bottom:0;
            width:100%;
            height:60px;   /* Height of the footer */
+           text-align: center;
         }
 
       </style>
