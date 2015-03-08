@@ -13,8 +13,13 @@ looking very bland, grey and not very interactive, so the product manager has as
     <head>
         <title>HyperCube</title>
         <link href="http://netdna.bootstrapcdn.com/bootstrap/3.0.0-rc1/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+        <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
 
         <style>
+            body {
+              font-family: 'Open Sans', sans-serif;
+            }
+
             .faces {
                 display: block;
                 margin: 0;
@@ -36,14 +41,43 @@ looking very bland, grey and not very interactive, so the product manager has as
                 margin: 0 0 5px 0;
             }
 
+            .navbar {
+                background: #18bde6;
+            }
+
+            .navbar-nav>.active>a {
+                background-color: #1384a9;
+            }
+
+body { background: #100000; font-size: 1.5rem; }
+div#gallery { perspective: 1200px; }
+figure#spinner { transform-style: preserve-3d; min-height: 122px;
+transform-origin: 50% 50% -500px; transition: 1s; }
+figure#spinner img { width: 40%; position: absolute; left: 30%;
+transform-origin-z: 50% 50% -500px; outline: 1px solid transparent; }
+
+figure#spinner img:nth-child(1) { transform: rotateY(0deg); }
+figure#spinner img:nth-child(2) { transform: rotateY(-45deg); }
+figure#spinner img:nth-child(3) { transform: rotateY(-90deg); }
+figure#spinner img:nth-child(4) { transform: rotateY(-135deg); }
+figure#spinner img:nth-child(5) { transform: rotateY(-180deg); }
+figure#spinner img:nth-child(6) { transform: rotateY(-225deg); }
+figure#spinner img:nth-child(7) { transform: rotateY(-270deg); }
+figure#spinner img:nth-child(8) { transform: rotateY(-315deg); }
+
             /* You can either put your CSS here or link to an external file. */
 
         </style>
 
-        <script type="text/javascript" src="http://code.jquery.com/ui/1.10.3/jquery-ui.min.js"></script>
-        <script type="text/javascript" src="http://netdna.bootstrapcdn.com/bootstrap/3.0.0-rc1/js/bootstrap.min.js"></script>
 
         <script type="text/javascript">
+var angle = 0;
+function galleryspin(sign) {
+spinner = document.querySelector("#spinner");
+if (!sign) { angle = angle + 45; } else { angle = angle - 45; }
+spinner.setAttribute("style","-webkit-transform: rotateY("+ angle +"deg");
+transform: rotateY("+ angle +"deg);");
+}
             // You can either put your JavaScript here or link to an external file.
         </script>
     </head>
@@ -57,12 +91,18 @@ looking very bland, grey and not very interactive, so the product manager has as
             </ul>
         </div>
 
-        <div class="container">
-
-            <ul class="faces">
-            </ul>
-
-        </div>
+<div id="gallery">
+<figure id="spinner">
+<img src="http://fillmurray.com/g/400/400" alt="">
+<img src="http://fillmurray.com/g/400/400" alt="">
+<img src="http://fillmurray.com/g/400/400" alt="">
+<img src="http://fillmurray.com/g/400/400" alt="">
+<img src="http://fillmurray.com/g/400/400" alt="">
+<img src="http://fillmurray.com/g/400/400" alt="">
+<img src="http://fillmurray.com/g/400/400" alt="">
+<img src="http://fillmurray.com/g/400/400" alt="">
+</figure>
+</div>
 
         <div class="container">
             HyperCube&trade; &mdash; It's like a cube, but <em>Hyper</em>!
