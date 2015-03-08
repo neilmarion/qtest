@@ -36,52 +36,81 @@ looking very bland, grey and not very interactive, so the product manager has as
                 margin: 0 0 5px 0;
             }
 
-        div#carousel { 
-          -webkit-perspective: 1200px; 
-          background: #100000; 
-          padding-top: 10%; 
-          font-size:0; 
-          margin-bottom: 3rem; 
-          overflow: hidden; 
-        }
-        figure#spinner { 
-          -webkit-transform-style: preserve-3d; 
-          height: 300px; 
-          -webkit-transform-origin: 50% 50% -500px; 
-          -webkit-transition: 1s; 
-        } 
-        figure#spinner img { 
-          width: 40%; max-width: 425px; 
-          position: absolute; left: 30%;
-          -webkit-transform-origin: 50% 50% -500px;
-          outline:1px solid transparent; 
-        }
-        figure#spinner img:nth-child(1) { -webkit-transform:rotateY(0deg); 
-        }
-        figure#spinner img:nth-child(2) { -webkit-transform: rotateY(-45deg); }
-        figure#spinner img:nth-child(3) { -webkit-transform: rotateY(-90deg); }
-        figure#spinner img:nth-child(4) { -webkit-transform: rotateY(-135deg); }
-        figure#spinner img:nth-child(5){ -webkit-transform: rotateY(-180deg); }
-        figure#spinner img:nth-child(6){ -webkit-transform: rotateY(-225deg); }
-        figure#spinner img:nth-child(7){ -webkit-transform: rotateY(-270deg); }
-        figure#spinner img:nth-child(8){ -webkit-transform: rotateY(-315deg); }
-        div#carousel ~ span { 
-          color: #fff; 
-          margin: 5%; 
-          display: inline-block; 
-          text-decoration: none; 
-          font-size: 2rem; 
-          -webkit-transition: 0.6s color; 
-          position: relative; 
-          margin-top: -6rem; 
-          border-bottom: none; 
-          line-height: 0; }
-        div#carousel ~ span:hover { color: #888; cursor: pointer; }
+          body {
+            background: #333;
+            padding: 70px 0;
+            font: 15px/20px Arial, sans-serif;
+          }
 
-            /* You can either put your CSS here or link to an external file. */
+          .container {
+            margin: 0 auto;
+            width: 250px;
+            height: 200px;
+            position: relative;
+            -webkit-perspective: 1000px;
+          }
+
+          .carousel {
+            height: 100%;
+            width: 100%;
+            position: absolute;
+            -webkit-transform-style: preserve-3d;
+            -webkit-transition: 1s;
+          }
+
+          .item {
+            display: block;
+            position: absolute;
+            background: #000;
+            width: 250px;
+            height: 200px;
+            line-height: 200px;
+            font-size: 5em;
+            text-align: center;
+            color: #FFF;
+            -webkit-opacity: 0.95;
+            border-radius: 10px;
+          }
+
+          .a {
+            -webkit-transform: rotateY(0deg) translateZ(250px);
+            background: #ed1c24;
+          }
+          .b {
+            -webkit-transform: rotateY(90deg) translateZ(250px);
+            background: #0072bc;
+          }
+          .c {
+            -webkit-transform: rotateY(180deg) translateZ(250px);
+            background: #39b54a;
+          }
+          .d {
+            -webkit-transform: rotateY(270deg) translateZ(250px);
+            background: #f26522;
+          }
+
+          .next, .prev {
+            color: #444;
+            position: absolute;
+            top: 100px;
+            padding: 1em 2em;
+            cursor: pointer;
+            background: #CCC;
+            border-radius: 5px;
+            border-top: 1px solid #FFF;
+            box-shadow: 0 5px 0 #999;
+            -webkit-transition: box-shadow 0.1s, top 0.1s;
+          }
+          .next:hover, .prev:hover { color: #000; }
+          .next:active, .prev:active {
+            top: 104px;
+            box-shadow: 0 1px 0 #999;
+          }
+          .next { right: 5em; }
+          .prev { left: 5em; }
 
         </style>
-
+      <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
 
 
     </head>
@@ -96,69 +125,82 @@ looking very bland, grey and not very interactive, so the product manager has as
         </div>
 
         <div class="container">
-
-            <ul class="faces">
-                <li class="face">
-                    <h2>What is HyperCube&trade;?</h2>
-                    <p>
-                        The HyperCube&trade; is one of Quipper's most fascinating cube projects,
-                        combining facets of the standard square and cube, while allowing for a
-                        staggering <em>n</em> dimensions!
-                    </p>
-                </li>
-                <li class="face">
-                    <h2>Imagine the possibilities!</h2>
-                    <p>
-                        Where the limits of standard cubes end, the endless possibilities of
-                        hypercubes begin! Prepare yourself to step into a whole new dimension.
-                    </p>
-                </li>
-                <li class="face">
-                    <h2>How is it possible?</h2>
-                    <p>
-                        Since it is so difficult to imagine an <em>n</em>-dimensional object in a 3D space,
-                        let alone the flat plane of this very website, we will represent hypercubes
-                        as if they were standard cubes.
-                    </p>
-                </li>
-                <li class="face">
-                    <h2>Is there more?</h2>
-                    <p>
-                        If you would like to know more about the incredible benefits of installing
-                        HyperCube&trade; in your Infinite Display System then please call us
-                        for a quote and let's see what we can do for you!
-                    </p>
-                </li>
-            </ul>
-
+          <div class="carousel">
+            <div class="item a">
+              <p>
+                <h5>What is HyperCube&trade;?</h5>
+              </p>
+              <p>
+                <h5>
+                    The HyperCube&trade; is one of Quipper's most fascinating cube projects,
+                    combining facets of the standard square and cube, while allowing for a
+                    staggering <em>n</em> dimensions!
+                </h5>
+              </p>
+            </div>
+            <div class="item b">
+              <p>
+                <h5>Imagine the possibilities!</h5>
+              </p>
+              <p>
+                <h5>
+                  Where the limits of standard cubes end, the endless possibilities of
+                  hypercubes begin! Prepare yourself to step into a whole new dimension.
+                </h5>
+              </p>
+            </div>
+            <div class="item c">
+              <p>
+                <h5>How is it possible?</h5>
+              </p>
+              <p>
+                <h5>
+                    Since it is so difficult to imagine an <em>n</em>-dimensional object in a 3D space,
+                    let alone the flat plane of this very website, we will represent hypercubes
+                    as if they were standard cubes.
+                </h5>
+              </p>
+            </div>
+            <div class="item d">
+              <h5>Is there more?</h5>
+              <p>
+                <h5>
+                    If you would like to know more about the incredible benefits of installing
+                    HyperCube&trade; in your Infinite Display System then please call us
+                    for a quote and let's see what we can do for you!
+                </h5>
+              </p>
+            </div>
+          </div>
         </div>
+        <div class="next">Next</div>
+        <div class="prev">Prev</div>
 
         <div class="container">
             HyperCube&trade; &mdash; It's like a cube, but <em>Hyper</em>!
         </div>
-
-        <div id="carousel">
-          <figure id="spinner">
-            <img src="http://www.tsquirrel.com/_data/photos/2015/03/thumbs/5911__russell-westbrook-reporter-i-just-dont-you.jpg" alt="">
-            <img src="http://www.tsquirrel.com/_data/photos/2015/03/thumbs/5911__russell-westbrook-reporter-i-just-dont-you.jpg" alt="">
-            <img src="http://www.tsquirrel.com/_data/photos/2015/03/thumbs/5911__russell-westbrook-reporter-i-just-dont-you.jpg" alt="">
-            <img src="http://www.tsquirrel.com/_data/photos/2015/03/thumbs/5911__russell-westbrook-reporter-i-just-dont-you.jpg" alt="">
-            <img src="http://www.tsquirrel.com/_data/photos/2015/03/thumbs/5911__russell-westbrook-reporter-i-just-dont-you.jpg" alt="">
-            <img src="http://www.tsquirrel.com/_data/photos/2015/03/thumbs/5911__russell-westbrook-reporter-i-just-dont-you.jpg" alt="">
-            <img src="http://www.tsquirrel.com/_data/photos/2015/03/thumbs/5911__russell-westbrook-reporter-i-just-dont-you.jpg" alt="">
-            <img src="http://www.tsquirrel.com/_data/photos/2015/03/thumbs/5911__russell-westbrook-reporter-i-just-dont-you.jpg" alt="">
-          </figure>
-        </div>
-        <span style=float:left class=ss-icon onclick="galleryspin('-')">&lt;</span>
-        <span style=float:right class=ss-icon onclick="galleryspin('')">&gt;</span>
     </body>
 
     <script type="text/javascript">
-      var angle = 0;
-      function galleryspin(sign) {
-      spinner = document.querySelector("#spinner");
-      if (!sign) { angle = angle + 45; } else { angle = angle - 45; }
-      spinner.setAttribute("style","-webkit-transform: rotateY("+ angle +"deg); transform: rotateY("+ angle +"deg);");
+      carousel = $(".carousel"),
+          currdeg  = 0;
+
+      $(".next").on("click", { d: "n" }, rotate);
+      $(".prev").on("click", { d: "p" }, rotate);
+
+      function rotate(e){
+        if(e.data.d=="n"){
+          currdeg = currdeg - 90;
+        }
+        if(e.data.d=="p"){
+          currdeg = currdeg + 90;
+        }
+        carousel.css({
+          "-webkit-transform": "rotateY("+currdeg+"deg)",
+          "-moz-transform": "rotateY("+currdeg+"deg)",
+          "-o-transform": "rotateY("+currdeg+"deg)",
+          "transform": "rotateY("+currdeg+"deg)"
+        });
       }
     </script>
 </html>
