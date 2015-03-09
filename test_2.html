@@ -1,13 +1,11 @@
 <html>
 <!--
 
-Quipper are creating a site to promote a new product called HyperCube. Currently it's
-looking very bland, grey and not very interactive, so the product manager has asked that:
-
-1. The navbar be styled to match the colour scheme and style of the one at www.quipper.com (Quipper blue is #18bde6)
-2. OpenSans be used as the main font, with nice crisp titles rather than heavy bold ones.
-3. The 4 panels be replaced with some kind of centered carousel. He would especially like if the carousel transitioned with a CSS3 3D cube rotation.
-4. The navbar menu to include 4 links for each of the 4 faces of the carousel.
+Tested and working properly with the following browsers:
+1. Chrome
+2. Firefox
+3. Safari
+4. Opera
 
 -->
     <head>
@@ -35,6 +33,7 @@ looking very bland, grey and not very interactive, so the product manager has as
                 position: relative;
                 margin-top: 100px;
                 -webkit-perspective: 1000px;
+                perspective: 1000px;
             }
 
             .carousel {
@@ -43,6 +42,8 @@ looking very bland, grey and not very interactive, so the product manager has as
                 position: absolute;
                 -webkit-transform-style: preserve-3d;
                 -webkit-transition: 1s;
+                transform-style: preserve-3d;
+                transition: transform 1s;
             }
 
             .item {
@@ -56,23 +57,28 @@ looking very bland, grey and not very interactive, so the product manager has as
                 text-align: center;
                 color: #FFF;
                 -webkit-opacity: 0.95;
+                opacity: 0.95;
                 border-radius: 10px;
             }
 
             .a {
                 -webkit-transform: rotateY(0deg) translateZ(250px);
+                transform: rotateY(0deg) translateZ(250px);
                 background: #ed1c24;
             }
             .b {
                 -webkit-transform: rotateY(90deg) translateZ(250px);
+                transform: rotateY(90deg) translateZ(250px);
                 background: #0072bc;
             }
             .c {
                 -webkit-transform: rotateY(180deg) translateZ(250px);
+                transform: rotateY(180deg) translateZ(250px);
                 background: #39b54a;
             }
             .d {
                 -webkit-transform: rotateY(270deg) translateZ(250px);
+                transform: rotateY(270deg) translateZ(250px);
                 background: #f26522;
             }
 
